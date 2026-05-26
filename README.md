@@ -15,7 +15,7 @@ Build a user profile system with photo upload, paginated user listing (5 users p
 - Add Member – Register new members with profile photo upload
 - File Upload Field – Avatar/profile picture upload in user profile view
 - Image Validation – Validates file type (image), MIME type, and file size
-- File Storage – Moves uploaded files to `public/uploads/` directory
+- File Storage – Moves uploaded files to `public/uploads/avatars` directory
 - Database Storage – Stores image path in database
 - Pagination – Displays 5 users per page with navigation links
 - Search Filtering – Optional search functionality for filtering users
