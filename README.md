@@ -1,61 +1,152 @@
-# CodeIgniter 4 Framework
+# Hands-On: Profile Picture & Paging
 
-## What is CodeIgniter?
+A CodeIgniter 4 application demonstrating profile picture upload, paginated user listing, edit and delete functionality.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+---
 
-This repository holds the distributable version of the framework.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## Activity Objective
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+Build a user profile system with photo upload, paginated user listing (5 users per page), edit and delete records.
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+---
 
-## Important Change with index.php
+## Features Implemented
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+- Add Member – Register new members with profile photo upload
+- File Upload Field – Avatar/profile picture upload in user profile view
+- Image Validation – Validates file type (image), MIME type, and file size
+- File Storage – Moves uploaded files to `public/uploads/` directory
+- Database Storage – Stores image path in database
+- Pagination – Displays 5 users per page with navigation links
+- Search Filtering – Optional search functionality for filtering users
+- Edit Member – Update member information and change profile photo
+- Delete Member – Remove member records from database (with photo deletion)
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+---
 
-**Please** read the user guide for a better explanation of how CI4 works!
+## Technologies Used
 
-## Repository Management
+- CodeIgniter 4 (PHP Framework)
+- MySQL (Database)
+- HTML/CSS/Bootstrap
+- XAMPP (Local Server)
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+---
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+## Project Structure
 
-## Contributing
+```text
+app/
+├── Controllers/
+│   └── Members.php
+├── Models/
+│   └── MemberModel.php
+├── Views/
+│   ├── layouts/
+│   │   └── main.php
+│   └── members/
+│       ├── form.php
+│       ├── index.php
+│       └── show.php
+└── Config/
+    └── (configuration files)
 
-We welcome contributions from the community.
+public/
+├── css/
+│   └── app.css
+└── uploads/
+    └── avatar/
+        └── (stored profile images)
+```
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
+---
 
-## Server Requirements
+## How It Works
 
-PHP version 8.2 or higher is required, with the following extensions installed:
+### 1. Add Member
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+Fill out the form and upload a profile picture.
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - The end of life date for PHP 8.1 was December 31, 2025.
-> - If you are still using below PHP 8.2, you should upgrade immediately.
-> - The end of life date for PHP 8.2 will be December 31, 2026.
+- System validates if the uploaded file is a real image
+- Checks file type and file size limit
+- Saves image inside `public/uploads/avatars`
+- Stores image path in the database
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+---
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+### 2. View Members
+
+Displays 5 members per page.
+
+- Pagination links for navigation
+- Profile pictures displayed beside member information
+- Edit and Delete buttons available for each member
+
+---
+
+### 3. Search Members
+
+Filter members by username.
+
+- Search results also support pagination
+
+---
+
+### 4. Edit Member
+
+Update existing member information.
+
+- Form is pre-filled with existing data
+- User can upload a new profile photo
+- Old photo is automatically removed
+- Existing photo remains if no new file is uploaded
+
+---
+
+### 5. Delete Member
+
+Remove a member permanently.
+
+- Deletes profile photo from uploads folder
+- Removes database record
+- Includes confirmation prompt before deletion
+
+---
+
+## CRUD Operations Completed
+
+- **Create** – Add new member with photo upload
+- **Read** – View member list with pagination and search
+- **Update** – Edit member information and profile picture
+- **Delete** – Remove member and associated image
+
+---
+
+## Validation Rules Implemented
+
+- File must be an image (`jpg`, `jpeg`, `png`, `gif`)
+- Maximum file size: 2MB
+- Required form field validation
+- Name validation
+- Email format validation (if applicable)
+
+---
+
+### Screenshots Included
+
+- Add member form with upload field
+- Paginated member listing with edit/delete buttons
+- Edit member form with existing data
+- Search functionality
+
+---
+
+## Author
+
+**April Nicole Custorio**
+
+---
+
+## Year/Block
+
+**3RD/3.2-BSIT**
