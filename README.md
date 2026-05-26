@@ -79,7 +79,6 @@ Fill out the form and upload a profile picture.
 Displays 5 members per page.
 
 - Pagination links for navigation
-- Profile pictures displayed beside member information
 - Edit and Delete buttons available for each member
 
 ---
